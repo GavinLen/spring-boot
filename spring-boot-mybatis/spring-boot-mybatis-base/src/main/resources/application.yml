@@ -1,0 +1,7 @@
+# Logger
+logging:
+  config: classpath:config/logback.xml
+
+spring:
+  profiles:
+    active: dev
