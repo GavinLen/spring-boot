@@ -66,7 +66,7 @@
             <property name="forceBigDecimals" value="false"/>
         </javaTypeResolver>
         <!-- 配置生成的实体类 -->
-        <javaModelGenerator targetPackage="xyz.ieden.mybatis.entity" targetProject="src/main/java">
+        <javaModelGenerator targetPackage="xyz.ieden.mb.entity" targetProject="src/main/java">
             <!-- 每一个属性生成构造器 -->
             <property name="constructorBased" value="true"/>
             <!-- 表示自动生成类之后自动继承CoreEntity -->
@@ -76,7 +76,7 @@
         <!-- 配置生成 XML 文件 -->
         <sqlMapGenerator targetPackage="mapper" targetProject="src/main/resources/mybatis"/>
         <!-- 配置生成 Mapper 接口 -->
-        <javaClientGenerator type="XMLMAPPER" targetPackage="xyz.ieden.mybatis.mapper" targetProject="src/main/java">
+        <javaClientGenerator type="XMLMAPPER" targetPackage="xyz.ieden.mb.mapper" targetProject="src/main/java">
             <property name="enableSubPackages" value="false"/>
             <!-- 表示自动生成类之后自动实现接口CoreDao -->
             <!--<property name="rootInterface" value="com.biu.wifi.core.base.CoreDao"/>-->

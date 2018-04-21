@@ -26,11 +26,9 @@
     <!--</pattern>-->
     <!--</encoder>-->
     <!--</appender>-->
-    <!--输出sql语句-->
-    <logger name="com.sun" level="DEBUG"/>
 
     <!-- 日志输出级别 -->
-    <root level="DEBUG">
+    <root level="INFO">
         <appender-ref ref="console"/>
     </root>
 

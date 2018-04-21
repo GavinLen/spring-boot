@@ -1,15 +1,16 @@
-package xyz.ieden.mb;
+package xyz.ieden.dubbo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
- * @author ThinkPad
- * @date Created by 2018/4/20 18:50
+ *
+ * @author Gavin
+ * @date 2018.04.22
  */
 @SpringBootApplication
-public class MyBatisBaseApplication {
+public class ConsumerApplication {
     public static void main(String[] args) {
-        SpringApplication.run(MyBatisBaseApplication.class, args);
+        SpringApplication.run(ConsumerApplication.class, args);
     }
 }

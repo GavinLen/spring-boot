@@ -5,17 +5,17 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>xyz.ieden</groupId>
-    <artifactId>spring-boot-mybatis</artifactId>
+    <artifactId>spring-boot-dubbo</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
-
-    <name>spring-boot-mybatis</name>
-    <description>MyBatis 的相关操作</description>
-
     <modules>
-        <module>spring-boot-mybatis-common</module>
-        <module>spring-boot-mybatis-base</module>
-        <module>spring-boot-mybatis-multi-datasource</module>
+        <module>spring-boot-dubbo-common</module>
+        <module>spring-boot-dubbo-client</module>
+        <module>spring-boot-dubbo-server</module>
+        <module>spring-boot-dubbo-customer</module>
+        <module>spring-boot-dubbo-producer</module>
+
+
     </modules>
 
     <parent>
@@ -117,4 +117,6 @@
             </plugins>
         </pluginManagement>
     </build>
+
+
 </project>
