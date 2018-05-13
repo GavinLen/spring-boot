@@ -1,11 +1,12 @@
-package xyz.ieden.mybatis.component;
+package xyz.ieden.data.component;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
 /**
- * @author ThinkPad
- * @date Created by 2018/4/20 18:41
+ *
+ * @author Gavin
+ * @date 2018.05.12
  */
 @Component
 @ConfigurationProperties(prefix = "spring.datasource")

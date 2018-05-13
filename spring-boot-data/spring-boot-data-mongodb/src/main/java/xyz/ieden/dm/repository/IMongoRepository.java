@@ -1,7 +1,6 @@
 package xyz.ieden.dm.repository;
 
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import xyz.ieden.dm.entity.UserInfo;
