@@ -1,0 +1,15 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /
+  tomcat:
+    uri-encoding: UTF-8
+
+m:
+  rest:
+    remote:
+      maxTotalConnect: 50
+      defaultMaxPerRoute: 50
+      maxConnectPerRoute: 100
+      connectTimeout: 2500
+      readTimeout: 10000

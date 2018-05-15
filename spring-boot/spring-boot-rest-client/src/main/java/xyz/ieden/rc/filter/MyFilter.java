@@ -1,28 +1,29 @@
-package xyz.ieden.rest.filter;
+package xyz.ieden.rc.filter;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.servlet.*;
-import javax.servlet.annotation.WebFilter;
-import javax.servlet.annotation.WebInitParam;
 import java.io.IOException;
 
 /**
- *
- * @author Gavin
- * @date 2018.05.12
+ * @author ThinkPad
+ * @date Created by 2018/5/15 13:47
  */
-@WebFilter(filterName = "myFilter", urlPatterns = "/*", description = "自定义的过滤器", initParams = {@WebInitParam(name = "name",value = "张三"), @WebInitParam(name = "age", value = "12")})
 public class MyFilter implements Filter {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(MyFilter.class);
 
+    /**
+     * 初始化操作
+     *
+     * @param filterConfig
+     * @throws ServletException
+     */
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
-        String name = filterConfig.getInitParameter("name");
-        String age = filterConfig.getInitParameter("age");
-        LOGGER.info("MyFilter.init(), Param:[Name:{}, Age:{}.]", name, age);
+        String value = filterConfig.getInitParameter("name");
+        LOGGER.info("MyFilter.init(), Param:[{}].", value);
     }
 
     @Override
@@ -34,6 +35,6 @@ public class MyFilter implements Filter {
 
     @Override
     public void destroy() {
-        LOGGER.info("MyFilter.destroy()");
+        LOGGER.info("MyFilter.destroy().");
     }
 }
