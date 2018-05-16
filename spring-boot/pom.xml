@@ -45,6 +45,7 @@
         <module>spring-boot-data-redis</module>
         <module>spring-boot-kafka</module>
         <module>spring-boot-rest-client</module>
+        <module>spring-boot-web-thymeleaf</module>
     </modules>
 
     <dependencyManagement>

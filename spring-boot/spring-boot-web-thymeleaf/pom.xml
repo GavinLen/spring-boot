@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>xyz.ieden</groupId>
+        <artifactId>spring-boot</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <groupId>xyz.ieden</groupId>
+    <artifactId>spring-boot-web-thymeleaf</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <!-- thymeleaf v3 -->
+        <thymeleaf.version>3.0.9.RELEASE</thymeleaf.version>
+        <thymeleaf-layout-dialect.version>2.1.1</thymeleaf-layout-dialect.version>
+    </properties>
+
+    <name>spring-boot-web-thymeleaf</name>
+    <description>SpringBoot Web Thymeleaf</description>
+
+    <dependencies>
+        <dependency>
+            <groupId>xyz.ieden</groupId>
+            <artifactId>spring-boot-commons</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+        </dependency>
+    </dependencies>
+
+</project>

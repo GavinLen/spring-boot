@@ -1,0 +1,16 @@
+
+spring:
+  thymeleaf:
+    encoding: UTF-8
+    cache: false
+    check-template: true
+    check-template-location: true
+    enabled: true
+    mode: HTML5
+    prefix: classpath:template/
+    suffix: .html
+    servlet:
+      content-type: text/html
+server:
+  servlet:
+    context-path: /wt
