@@ -1,4 +1,4 @@
-package xyz.ieden.wt.controller;
+package xyz.ieden.ws.controller;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -9,11 +9,12 @@ import org.springframework.web.servlet.ModelAndView;
 
 /**
  * @author ThinkPad
- * @date Created by 2018/5/16 16:47
+ * @date Created by 2018/5/18 11:19
  */
 @Controller
 @RequestMapping(value = "home")
 public class HomeController {
+
     private static final Logger LOGGER = LoggerFactory.getLogger(HomeController.class);
 
     @GetMapping(value = "")

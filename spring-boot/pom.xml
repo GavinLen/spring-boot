@@ -46,6 +46,8 @@
         <module>spring-boot-kafka</module>
         <module>spring-boot-rest-client</module>
         <module>spring-boot-web-thymeleaf</module>
+        <module>spring-boot-rest-server</module>
+        <module>spring-boot-websocket</module>
     </modules>
 
     <dependencyManagement>

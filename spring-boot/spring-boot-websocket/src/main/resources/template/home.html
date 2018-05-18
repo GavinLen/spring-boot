@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+Welcome<br/><input id="text" type="text"/>
+<button onclick="send()">发送消息</button>
+<button onclick="subscribe2()">订阅消息/topic/test</button>
+<button onclick="subscribe1()">订阅消息/topic/develop</button>
+<hr/>
+<button onclick="closeWebSocket()">关闭WebSocket连接</button>
+<hr/>
+<div id="message"></div>
+</body>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/stomp.js/2.3.3/stomp.min.js"></script>
+<script src="https://cdn.bootcss.com/sockjs-client/1.1.4/sockjs.min.js"></script>
+<script type="text/javascript" th:src="@{/static/js/abc.js}"></script>
+<script type="text/javascript">
+    // 建立连接对象（还未发起连接）
+    var socket = new SockJS("http://localhost:8080/webSocketServer");
+
+    // 获取 STOMP 子协议的客户端对象
+    var stompClient = Stomp.over(socket);
+
+    // 向服务器发起websocket连接并发送CONNECT帧
+    stompClient.connect(
+        {},
+        // 连接回调
+        function connectCallback(frame) {
+            // 连接成功时（服务器响应 CONNECTED 帧）的回调方法
+            setMessageInnerHTML("连接成功");
+            // 订阅
+            stompClient.subscribe('/app/develop', function (response) {
+                setMessageInnerHTML("已成功订阅/app/develop");
+                var returnData = JSON.parse(response.body);
+                setMessageInnerHTML("/app/develop 你接收到的消息为:" + returnData.respMessage);
+            });
+        },
+        // 错误回调
+        function errorCallBack(error) {
+            // 连接失败时（服务器响应 ERROR 帧）的回调方法
+            setMessageInnerHTML("连接失败");
+        }
+    );
+
+    //发送消息
+    function send() {
+        var message = document.getElementById('text').value;
+        var messageJson = JSON.stringify({'message': message, 'date': new Date()});
+        stompClient.send("/app/toDevelop", {}, messageJson);
+        setMessageInnerHTML("/app/toDevelop 你发送的消息:" + message);
+    }
+
+    //订阅消息
+    function subscribe1() {
+        stompClient.subscribe('/topic/develop', function (response) {
+            setMessageInnerHTML("已成功订阅/topic/develop");
+            var returnData = JSON.parse(response.body);
+            setMessageInnerHTML("/topic/develop 你接收到的消息为:" + returnData.respMessage);
+        });
+    }
+
+    //订阅消息
+    function subscribe2() {
+        stompClient.subscribe('/topic/test', function (response) {
+            setMessageInnerHTML("已成功订阅/topic/test");
+            var returnData = JSON.parse(response.body);
+            setMessageInnerHTML("/topic/test 你接收到的消息为:" + returnData.respMessage);
+        });
+    }
+
+    //将消息显示在网页上
+    function setMessageInnerHTML(innerHTML) {
+        document.getElementById('message').innerHTML += innerHTML + '<br/>';
+    }
+</script>

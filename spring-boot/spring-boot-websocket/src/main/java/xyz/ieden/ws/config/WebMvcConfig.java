@@ -1,18 +1,17 @@
-package xyz.ieden.wt.config;
+package xyz.ieden.ws.config;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Component;
-import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
-import xyz.ieden.wt.interceptor.TokenInterceptor;
 
 /**
  * @author ThinkPad
  * @date Created by 2018/5/16 17:19
  */
-@Component
+@Configuration
 public class WebMvcConfig implements WebMvcConfigurer {
     private final static Logger LOGGER = LoggerFactory.getLogger(WebMvcConfig.class);
 
@@ -25,12 +24,5 @@ public class WebMvcConfig implements WebMvcConfigurer {
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         //第一个方法设置访问路径前缀，第二个方法设置资源路径
         registry.addResourceHandler("/static/**").addResourceLocations("classpath:/static/");
-    }
-
-
-    @Override
-    public void addInterceptors(InterceptorRegistry registry) {
-        LOGGER.info("add interceptors");
-        registry.addInterceptor(new TokenInterceptor()).addPathPatterns("/**").excludePathPatterns("/static/**");
     }
 }

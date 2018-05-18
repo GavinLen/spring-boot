@@ -1,7 +1,10 @@
 server:
   port: 8080
   servlet:
-    context-path: /wt
+    context-path: /
+  tomcat:
+    uri-encoding: UTF-8
+
 spring:
   thymeleaf:
     encoding: UTF-8
@@ -9,7 +12,7 @@ spring:
     check-template: true
     check-template-location: true
     enabled: true
-    mode: HTML5
+    mode: HTML
     prefix: classpath:template/
     suffix: .html
     servlet:
