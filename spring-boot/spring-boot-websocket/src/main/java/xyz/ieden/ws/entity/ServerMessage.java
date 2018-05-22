@@ -11,7 +11,14 @@ public class ServerMessage {
     private String respMessage;
     private Date createDate;
 
-    // Setter and Getter Method
+    public ServerMessage() {
+    }
+
+    public ServerMessage(String respMessage) {
+        this.respMessage = respMessage;
+    }
+
+// Setter and Getter Method
     
     public String getRespMessage() {
         return respMessage;
