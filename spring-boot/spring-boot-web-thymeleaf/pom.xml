@@ -14,14 +14,19 @@
 
     <properties>
         <!-- thymeleaf v3 -->
-        <thymeleaf.version>3.0.9.RELEASE</thymeleaf.version>
-        <thymeleaf-layout-dialect.version>2.1.1</thymeleaf-layout-dialect.version>
+        <!--<thymeleaf.version>3.0.9.RELEASE</thymeleaf.version>-->
+        <!--<thymeleaf-layout-dialect.version>2.1.1</thymeleaf-layout-dialect.version>-->
     </properties>
 
     <name>spring-boot-web-thymeleaf</name>
     <description>SpringBoot Web Thymeleaf</description>
 
     <dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+
         <dependency>
             <groupId>xyz.ieden</groupId>
             <artifactId>spring-boot-commons</artifactId>
