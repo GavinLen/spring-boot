@@ -26,6 +26,7 @@ public class Result<T> implements Serializable {
     }
 
     // Setter and Getter Method
+
     public String getCode() {
         return code;
     }

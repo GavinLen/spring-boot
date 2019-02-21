@@ -19,6 +19,7 @@
         <module>spring-boot-data-mybatis</module>
         <module>spring-boot-data-es-mysql</module>
         <module>spring-boot-data-jpa</module>
+        <module>spring-boot-sharding-jdbc</module>
     </modules>
 
     <parent>
@@ -51,20 +52,20 @@
             <artifactId>spring-boot-devtools</artifactId>
             <optional>true</optional><!-- 若不设置则热部署不能起效 -->
         </dependency>
-        <!--<dependency>-->
-            <!--<groupId>mysql</groupId>-->
-            <!--<artifactId>mysql-connector-java</artifactId>-->
-        <!--</dependency>-->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+        </dependency>
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
             <version>${fastjson.version}</version>
         </dependency>
-        <!--<dependency>-->
-            <!--<groupId>com.alibaba</groupId>-->
-            <!--<artifactId>druid-spring-boot-starter</artifactId>-->
-            <!--<version>${druid.version}</version>-->
-        <!--</dependency>-->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid-spring-boot-starter</artifactId>
+            <version>${druid.version}</version>
+        </dependency>
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>

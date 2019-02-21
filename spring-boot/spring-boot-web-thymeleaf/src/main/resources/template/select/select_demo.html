@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Select Demo</title>
+    <link rel="stylesheet" th:href="@{/static/select/css/select2.css}">
+    <link th:href="@{https://cdn.bootcss.com/twitter-bootstrap/4.2.1/css/bootstrap.css}" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <h1>Select Demo</h1>
+    <h1></h1>
+    <select id="select" style="width: 500px">
+
+    </select>
+</div>
+<script type="text/javascript" th:src="@{http://code.jquery.com/jquery-2.1.1.min.js}"></script>
+<script th:src="@{https://cdn.bootcss.com/twitter-bootstrap/4.2.1/js/bootstrap.js}"></script>
+<script type="text/javascript" th:src="@{/static/select/js/select2.js}"></script>
+<script type="text/javascript" th:inline="javascript">
+    var _PATH = /*[[@{/}]]*/;
+</script>
+<script type="text/javascript" th:inline="javascript">
+    var id = 1;
+    $(function () {
+        $('#select').select2({
+            placeholder: '请选择',
+            ajax: {
+                type: 'GET', // 请求方式
+                url: _PATH + 'data/option/group',// 请求路径
+                dataType: 'json',// 数据类型
+                language: 'zh-CN',// 语言
+                delay: 1000,// 延时
+                tags: true,// 允许手工添加
+                minimumInputLength: 5,// 最少输入长度
+                data: function (params) {
+                    console.log(params);
+                    var term = params.term;
+                    if (term === undefined || term === '') {
+                        term = '';
+                    }
+                    var query = {
+                        search: term,
+                        type: 'public'
+                    };
+                    return query;
+                },
+                processResults: function (result, params) {// 处理结果
+                    console.log(result);
+                    console.log('params:' + params.term);
+                    var data = result.data;
+                    var term = params.term;
+                    var a = [];
+                    id += 1;
+                    if (term === undefined || term === '') {
+                        a.push({id: id, text: ''})
+                    } else {
+                        a = [{id: id, text: term}];
+
+                    }
+                    return {
+                        results: a
+                    };
+                }
+            },
+            cache: true
+        });
+    });
+</script>
+</body>
